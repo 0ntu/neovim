@@ -8,26 +8,15 @@
       url = "github:neovim/neovim/stable?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    telescope-recent-files-src = {
-      url = "github:smartpde/telescope-recent-files";
-      flake = false;
-    };
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
   };
-  outputs = { self, nixpkgs, neovim, telescope-recent-files-src, flake-utils }:
+  outputs = { self, nixpkgs, neovim, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlayFlakeInputs = prev: final: {
           neovim = neovim.packages.${prev.system}.neovim;
-
-          vimPlugins = final.vimPlugins // {
-            telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
-              src = telescope-recent-files-src;
-              pkgs = prev;
-            };
-          };
         };
 
         overlayMyNeovim = prev: final: {
