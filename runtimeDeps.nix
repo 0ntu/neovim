@@ -6,6 +6,10 @@ with pkgs; [
   nodePackages_latest.pyright
   nil
 
+  # rust
+  cargo
+  rustc
+
   # development environment
   lazygit
 ]
