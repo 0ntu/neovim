@@ -18,4 +18,5 @@ with pkgs.vimPlugins; [
   cmp-nvim-lsp
   lspkind-nvim
   nvim-lspconfig
+  vim-sleuth
 ]
