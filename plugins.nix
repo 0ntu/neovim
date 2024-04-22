@@ -11,7 +11,7 @@ with pkgs.vimPlugins; [
   luasnip
   neodev-nvim
   rustaceanvim
-  nvim-treesitter
+  nvim-treesitter.withAllGrammars
   which-key-nvim
   plenary-nvim
   nvim-cmp
